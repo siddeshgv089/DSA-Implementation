@@ -1,48 +1,51 @@
+//Defines the entry point for the console application.
+#include<iostream>
+#include"stdafx.h"
+#include"Stack_T.h"
 #include"Node.h"
-#include"LinkedList.h"
-using namespace std;
+
 
 
 int main()
 {
-	LinkedList <char>*l = new LinkedList<char>();
-	try {
-		
-		l->append('a');
-		l->append('b');
-		l->append('c');
-		l->append('d');
-		l->append('e');
-		l->append('f');
-		l->append('g');
-		
-
-		l->PrintData();
-
-		l->deleteAtBegin();
-		l->deleteAtEnd();
-		l->deleteItem('e');
-
-		l->PrintData();
-
-		l->insertAtBegin('a');
-		l->insertAtEnd('g');
-		l->insertAtPos(5, 'e');
-
-		l->PrintData();
-
-		l->updateAtBegin('A');
-		l->updateAtEnd('G');
-		l->updateAtPos(5,'E');
-
-		l->PrintData();
-		
-
-	}
-	catch (exception e)
-	{
-		cout << e.what()<< endl;
-	}
+	Stack_T<int> *s = new Stack_T<int>();
 	
-	return 0;
+	try {
+		//pushing data to stack ;
+		s->pushData(10);
+		//s->pushData(20);
+		//s->pushData(30);
+		//s->pushData(40);
+		//s->pushData(50);
+		//s->pushData(60);
+		//s->pushData(70);
+
+		//printing the stack
+		s->printStack();
+
+		//popping the data()
+		Node<int> *p1 = s->pop();
+		Node<int> *p2 = s->pop();
+
+
+		//printing the data from pop Nodes
+		std::cout << "p1 = " << p1->getData() << endl;
+		std::cout << "p2 = " << p2->getData() << endl;
+
+		//printinf the data after the pop operation
+		s->printStack();
+	}
+
+	catch (...)
+	{
+		cerr << "Stack Empty Exception "<< endl;
+
+	}
+
+	s->pushData(20);
+	s->pushData(30);
+
+	s->printStack();
+    return 0;
 }
+

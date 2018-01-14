@@ -1,27 +1,23 @@
 #pragma once
 #include<iostream>
 
+
 template<typename T>
+
 class Node
 {
 private:
-	T data;
-	Node <T>* next = NULL;
+	T data; 
+	Node<T> *next = NULL;
 
 public:
-	Node<T>(T item) :data(item) {}
-
-	T getData() const
+	Node<T>(T item)
 	{
-		return data;
+		data = item;
+
 	}
 
-	Node <T>* getNext() const
-	{
-		return next;
-	}
-
-	void setData(T data)
+	void setdata(T data)
 	{
 		this->data = data;
 	}
@@ -31,4 +27,13 @@ public:
 		this->next = next;
 	}
 
+	Node<T> * getNext() const
+	{
+		return (this->next);
+	}
+
+	T getData() const
+	{
+		return (this->data);
+	}
 };
